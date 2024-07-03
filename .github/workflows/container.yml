@@ -5,11 +5,13 @@ on:
       branches:
         - main
       paths:
-        'container/**' 
+        - 'container/**' 
+        - '.github/workflows/contaniner.yml'
 
 defaults:
   run:
     working-directory: container
+    
 
 jobs:
   build:
