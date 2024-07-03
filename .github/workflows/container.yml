@@ -5,8 +5,8 @@ on:
       branches:
         - main
       paths:
-        - 'container/**' 
-        - '.github/workflows/contaniner.yml'
+         'container/**' 
+        # - '.github/workflows/contaniner.yml'
 
 defaults:
   run:
