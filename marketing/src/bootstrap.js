@@ -3,13 +3,13 @@ import ReactDOM from "react-dom";
 import App from "./App";
 
 // custom history object
-import { createMemoryHistory } from "history";
+import { createMemoryHistory , createBrowserHistory } from "history";
 
 // mount funct to start the app
-const mount = (el, { onNavigate }) => {
+const mount = (el, { onNavigate, defaultHistory }) => {
   console.log(onNavigate);
   // create a custom history object
-  const history = createMemoryHistory(); //custom history object that is used to navigate between different routes
+  const history =defaultHistory || createMemoryHistory();  //custom history object that is used to navigate between different routes
   onNavigate && history.listen(onNavigate); // that listenning to path and when change it work
 
   ReactDOM.render(<App history={history} />, el);
@@ -32,7 +32,7 @@ if (process.env.NODE_ENV === "development") {
   const el = document.querySelector("#_marketing-dev-root");
 
   if (el) {
-    mount(el, {});
+    mount(el, {defaultHistory:createBrowserHistory()});
   }
 }
 
