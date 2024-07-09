@@ -12,17 +12,19 @@ export default () => {
     const returns = mount(ref.current, {
       onNavigate: ({ pathname: nextPathname }) => {
         const { pathname: currentPathname } = history.location;
+        console.log("Container noticed navigation in Marketing" + currentPathname + " " + nextPathname);
         if (currentPathname != nextPathname) {
           history.push(nextPathname);
         }
       },
-    });
+    }  
+  );
 
     console.log(returns);
     if (returns) {
       history.listen(returns?.onParentNavigate);
     }
-  }, [history]);
+  }, [ history , ref , mount , useHistory]);
 
   return <div ref={ref} />;
 };
