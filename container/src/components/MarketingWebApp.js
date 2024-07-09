@@ -9,16 +9,17 @@ export default () => {
   const history = useHistory();
 
   useEffect(() => {
-   const { onParentNavigate }=   mount(ref.current, {
+    const { onParentNavigate } = mount(ref.current, {
       onNavigate: ({ pathname: nextPathname }) => {
-        const {pathname:currentPathname} = history.location
-        if (currentPathname!= nextPathname) {
+        const { pathname: currentPathname } = history.location;
+        if (currentPathname != nextPathname) {
           history.push(nextPathname);
         }
       },
     });
-
-    history.listen(onParentNavigate)
+    if (onParentNavigate) {
+      history.listen(onParentNavigate);
+    }
   }, []);
 
   return <div ref={ref} />;
