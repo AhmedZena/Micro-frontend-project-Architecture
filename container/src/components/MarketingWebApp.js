@@ -7,7 +7,7 @@ export default () => {
 
   // custom history
   const history = useHistory();
-
+  console.log(history)
   useEffect(() => {
     const returns = mount(ref.current, {
       onNavigate: ({ pathname: nextPathname }) => {
