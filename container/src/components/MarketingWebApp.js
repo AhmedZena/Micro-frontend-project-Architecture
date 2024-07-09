@@ -24,7 +24,7 @@ export default () => {
     if (returns) {
       history.listen(returns?.onParentNavigate);
     }
-  }, [ history , ref , mount , useHistory]);
+  }, [ ]);
 
   return <div ref={ref} />;
 };
