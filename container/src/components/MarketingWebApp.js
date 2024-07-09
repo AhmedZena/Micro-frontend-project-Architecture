@@ -18,6 +18,7 @@ export default () => {
       },
     });
     if (returns) {
+      console.log(returns)
       history.listen(returns?.onParentNavigate);
     }
   }, []);
