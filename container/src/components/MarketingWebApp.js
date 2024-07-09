@@ -22,7 +22,7 @@ export default () => {
     if (returns) {
       history.listen(returns?.onParentNavigate);
     }
-  }, []);
+  }, [history]);
 
   return <div ref={ref} />;
 };
