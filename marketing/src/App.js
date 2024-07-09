@@ -10,11 +10,12 @@ const generateClassName = createGenerateClassName({
 });
 
 export default ({ history }) => {
+
   //  the history object is passed as a prop to the App component
   // it is a custom history object that is used to navigate between different routes
   // here it is a memory history object
 
-
+console.log(`Marketing App History: ${history}`)
 
 
   return (

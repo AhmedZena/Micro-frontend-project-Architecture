@@ -11,11 +11,16 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 // mount funct to start the app
-const mount = (el, { onNavigate, defaultHistory }) => {
+const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
   console.log(defaultHistory, onNavigate);
   // create a custom history object
-  const history = defaultHistory || createMemoryHistory(); //custom history object that is used to navigate between different routes
-  onNavigate && history.listen(onNavigate); // that listenning to path and when change it work
+  const history = defaultHistory || createMemoryHistory({
+    initialEntries: [initialPath],
+  }); //custom history object that is used to navigate between different routes
+  // onNavigate && history.listen(onNavigate); // that listenning to path and when change it work
+  if (onNavigate) {
+    history.listen(onNavigate);
+  }
 
   ReactDOM.render(<App history={history} />, el);
 
