@@ -19,6 +19,9 @@ const prodConfig = {
       shared: pkgJson.dependencies,
     }),
   ],
+  devServer: {
+    port: 8081, 
+  },
 };
 
 module.exports = merge(commonConfig, prodConfig);
