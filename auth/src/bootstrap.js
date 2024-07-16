@@ -3,9 +3,10 @@ import ReactDOM from "react-dom";
 import App from "./App";
 
 // custom history object
-import { createMemoryHistory , createBrowserHistory } from "history";
+import { createMemoryHistory, createBrowserHistory } from "history";
+
 // mount funct to start the app
-const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
+const mount = (el, { onNavigate, defaultHistory , initialPath }) => {
   const history =
     defaultHistory ||
     createMemoryHistory({
@@ -29,10 +30,10 @@ const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
 // call mount immediately
 
 if (process.env.NODE_ENV === "development") {
-  const el = document.querySelector("#_marketing-dev-root");
+  const el = document.querySelector("#_auth-dev-root");
 
   if (el) {
-    mount(el, {defaultHistory:createBrowserHistory()});
+    mount(el, { defaultHistory: createBrowserHistory() });
   }
 }
 
